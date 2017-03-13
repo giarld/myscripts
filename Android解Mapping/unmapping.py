@@ -38,6 +38,7 @@ class LogUnMapping:
 
         self.mappaing = mapMapping.items()
         self.mappaing.sort(lambda x, y: cmp(len(x[0]), len(y[0])), reverse=True)
+        print "Ok."
         # for _, __ in self.mappaing:
         #     os.system("echo '" + _ + " = " + __ + "' >> mapps")
 
@@ -64,7 +65,7 @@ class LogUnMapping:
 
     # work
     def unMapping(self, logFilePath):
-        print "unMapping", logFilePath,
+        print "unMapping", logFilePath, "... "
         inFile = open(logFilePath, "r")
         outFile = open(logFilePath + suffix, "w")
         inLines = inFile.readlines()
@@ -83,9 +84,10 @@ class LogUnMapping:
 
         inFile.close()
         outFile.close()
-        print " OK."
+        print "OK."
 
     def unMappingDirs(self, logDirPath):
+        print "Start unMapping."
         for _, __, fileNames in os.walk(logDirPath):
             for fileName in fileNames:
                 if self.mappaingFileName in fileName:
